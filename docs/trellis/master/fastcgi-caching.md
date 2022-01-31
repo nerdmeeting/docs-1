@@ -14,7 +14,7 @@ cache:
   skip_cache_cookie: comment_author|wordpress_[a-f0-9]+|wp-postpass|wordpress_no_cache|wordpress_logged_in
 ```
 
-The `duration` parameter control how long your pages will stay in the cache. You should generally keep this value low (the default is 30 seconds), unless your content doesn't change frequently. Lowering the duration to `1s` will make the cache more like a DDOS protection; meaning that if you have a sudden spike of traffic, only one request will hit the back-end per second instead of the full load. The whole setup is "micro-cache" oriented, so there is no means of flushing the cache.
+The `duration` parameter controls how long your pages will stay in the cache. You should generally keep this value low (the default is 30 seconds), unless your content doesn't change frequently. Lowering the duration to `1s` will make the cache more like a DDOS protection; meaning that if you have a sudden spike of traffic, only one request will hit the back-end per second instead of the full load. The whole setup is "micro-cache" oriented, so there is no means of flushing the cache.
 
 The `skip_cache_uri` is a regex that will be used to tell Nginx **not** cache pages matching it. **Use it if you have sections of your site that you don't want cached (like shopping carts)**. Override the global `nginx_skip_cache_uri` in `group_vars/all/main.yml` or override `skip_cache_uri` under `cache` to vary it per [WordPress site](wordpress-sites.md). The default value is shown above.
 
